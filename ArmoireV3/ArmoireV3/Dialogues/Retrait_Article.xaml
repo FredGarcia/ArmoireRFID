@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="ArmoireV3.Dialogues.Retrait_Article"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:language="clr-namespace:ArmoireV3.Inter"
+             mc:Ignorable="d" 
+             d:DesignHeight="768" d:DesignWidth="1024" Background="#FF0076BC">
+    <Grid>
+        <Grid Margin="0,40,550,0" Width="480" >
+            <TextBlock x:Name="textBlockPosition" Text="{x:Static language:LanguageHelper.posInCab}" 
+                                   Height="45" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" 
+                                   Margin="50,115,0,0" FontSize="30" FontFamily="Arial" />
+            
+            
+            <Image Height="442" HorizontalAlignment="Left" Margin="35,159,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="418" Source="/ArmoireV3;component/Images/fondAppliArmoire.png" />
+            <Border HorizontalAlignment="Left" Margin="35,159,0,0" Padding="20" VerticalAlignment="Top" Width="418" Height="442" 
+                                x:Name="rectangleArmoire"  BorderThickness="1" Background="Transparent"  BorderBrush="Black" >
+                <Grid Background="White" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="14*" />
+                        <ColumnDefinition Width="362*" />
+                    </Grid.ColumnDefinitions>
+                    <Border  Height="50" HorizontalAlignment="Left" x:Name="rectangleCase1" BorderBrush="Black" BorderThickness="1" CornerRadius="5" VerticalAlignment="Top" Width="70" Visibility="Hidden" Grid.ColumnSpan="2" />
+                    <Border  Height="50" HorizontalAlignment="Left" Margin="86,0,0,0" x:Name="rectangleCase2" BorderBrush="Black" BorderThickness="1" CornerRadius="5" VerticalAlignment="Top" Width="70"  Visibility="Hidden" Grid.Column="1" />
+                    <Border  Height="50" HorizontalAlignment="Left" Margin="186,0,0,0" x:Name="rectangleCase3" BorderBrush="Black" BorderThickness="1" CornerRadius="5" VerticalAlignment="Top" Width="70" Visibility="Hidden" Grid.Column="1" />
+                    <Border  Height="50" HorizontalAlignment="Left" Margin="286,0,0,0" x:Name="rectangleCase4" BorderBrush="Black" BorderThickness="1" CornerRadius="5" VerticalAlignment="Top" Width="70" Visibility="Hidden" Grid.Column="1" />
+                    <Border  Height="50" HorizontalAlignment="Left" Margin="0,70,0,0" x:Name="rectangleCase5" BorderBrush="Black" BorderThickness="1" CornerRadius="5" VerticalAlignment="Top" Width="70" Visibility="Hidden" Grid.ColumnSpan="2" />
+                    <Border  Height="50" HorizontalAlignment="Left" Margin="86,70,0,0" x:Name="rectangleCase6" BorderBrush="Black" BorderThickness="1" CornerRadius="5" VerticalAlignment="Top" Width="70" Visibility="Hidden" Grid.Column="1" />
+                    <Border  Height="50" HorizontalAlignment="Left" Margin="186,70,0,0" x:Name="rectangleCase7" BorderBrush="Black" BorderThickness="1" CornerRadius="5" VerticalAlignment="Top" Width="70" Visibility="Hidden" Grid.Column="1" />
+                    <Border  Height="50" HorizontalAlignment="Left" Margin="286,70,0,0" x:Name="rectangleCase8" BorderBrush="Black" BorderThickness="1" CornerRadius="5" VerticalAlignment="Top" Width="70" Visibility="Hidden" Grid.Column="1" />
+                    <Border  Height="50" HorizontalAlignment="Left" Margin="0,140,0,0" x:Name="rectangleCase9" BorderBrush="Black" BorderThickness="1" CornerRadius="5" VerticalAlignment="Top" Width="70" Visibility="Hidden" Grid.ColumnSpan="2" />
+                    <Border  Height="50" HorizontalAlignment="Left" Margin="86,140,0,0" x:Name="rectangleCase10" BorderBrush="Black" BorderThickness="1" CornerRadius="5" VerticalAlignment="Top" Width="70" Visibility="Hidden" Grid.Column="1" />
+                    <Border  Height="50" HorizontalAlignment="Left" Margin="186,140,0,0" x:Name="rectangleCase11" BorderBrush="Black" BorderThickness="1" CornerRadius="5" VerticalAlignment="Top" Width="70" Visibility="Hidden" Grid.Column="1" />
+                    <Border  Height="50" HorizontalAlignment="Left" Margin="286,140,0,0" x:Name="rectangleCase12" BorderBrush="Black" BorderThickness="1" CornerRadius="5" VerticalAlignment="Top" Width="70" Visibility="Hidden" Grid.Column="1" />
+                    <Border  Height="50" HorizontalAlignment="Left" Margin="0,210,0,0" x:Name="rectangleCase13" BorderBrush="Black" BorderThickness="1" CornerRadius="5" VerticalAlignment="Top" Width="70" Visibility="Hidden" Grid.ColumnSpan="2" />
+                    <Border  Height="50" HorizontalAlignment="Left" Margin="86,210,0,0" x:Name="rectangleCase14" BorderBrush="Black" BorderThickness="1" CornerRadius="5" VerticalAlignment="Top" Width="70" Visibility="Hidden" Grid.Column="1" />
+                    <Border  Height="50" HorizontalAlignment="Left" Margin="186,210,0,0" x:Name="rectangleCase15" BorderBrush="Black" BorderThickness="1" CornerRadius="5" VerticalAlignment="Top" Width="70" Visibility="Hidden" Grid.Column="1" />
+                    <Border  Height="50" HorizontalAlignment="Left" Margin="286,210,0,0" x:Name="rectangleCase16" BorderBrush="Black" BorderThickness="1" CornerRadius="5" VerticalAlignment="Top" Width="70" Visibility="Hidden" Grid.Column="1" />
+                    <Border  Height="50" HorizontalAlignment="Left" Margin="0,280,0,0" x:Name="rectangleCase17" BorderBrush="Black" BorderThickness="1" CornerRadius="5" VerticalAlignment="Top" Width="70" Visibility="Hidden" Grid.ColumnSpan="2" />
+                    <Border  Height="50" HorizontalAlignment="Left" Margin="86,280,0,0" x:Name="rectangleCase18" BorderBrush="Black" BorderThickness="1" CornerRadius="5" VerticalAlignment="Top" Width="70" Visibility="Hidden" Grid.Column="1" />
+                    <Border  Height="50" HorizontalAlignment="Left" Margin="186,280,0,0" x:Name="rectangleCase19" BorderBrush="Black" BorderThickness="1" CornerRadius="5" VerticalAlignment="Top" Width="70" Visibility="Hidden" Grid.Column="1" />
+                    <Border  Height="50" HorizontalAlignment="Left" Margin="286,280,0,0" x:Name="rectangleCase20" BorderBrush="Black" BorderThickness="1" CornerRadius="5" VerticalAlignment="Top" Width="70" Visibility="Hidden" Grid.Column="1" />
+                    <Border  Height="50" HorizontalAlignment="Left" Margin="0,350,0,0" x:Name="rectangleCase21" BorderBrush="Black" BorderThickness="1" CornerRadius="5" VerticalAlignment="Top" Width="70" Visibility="Hidden" Grid.ColumnSpan="2" />
+                    <Border  Height="50" HorizontalAlignment="Left" Margin="86,350,0,0" x:Name="rectangleCase22" BorderBrush="Black" BorderThickness="1" CornerRadius="5" VerticalAlignment="Top" Width="70" Visibility="Hidden" Grid.Column="1" />
+                    <Border  Height="50" HorizontalAlignment="Left" Margin="186,350,0,0" x:Name="rectangleCase23" BorderBrush="Black" BorderThickness="1" CornerRadius="5" VerticalAlignment="Top" Width="70" Visibility="Hidden" Grid.Column="1" />
+                    <Border  Height="50" HorizontalAlignment="Left" Margin="286,350,0,0" x:Name="rectangleCase24" BorderBrush="Black" BorderThickness="1" CornerRadius="5" VerticalAlignment="Top" Width="70"  Grid.Column="1" />
+                </Grid>
+            </Border>
+        </Grid>
+        
+        <Grid x:Name="gridOpenCabinet"  Width="400" Height="550" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,12,106">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF007DC5" Offset="0.064"/>
+                    <GradientStop Color="#FF0076BC" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <TextBlock Text="{x:Static language:LanguageHelper.ongoingService}" 
+                                   HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,150,0,0"
+                                   Foreground="White" FontSize="26"/>
+            <TextBlock Text="{x:Static language:LanguageHelper.cusoon}"
+                                   HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,200,0,0" Width="350"
+                                   TextWrapping="WrapWithOverflow" TextAlignment="Center" Foreground="White" FontSize="26" />
+        </Grid>
+        <Button Content="Fermer" Focusable="False" FontFamily="Arial" FontSize="16" FontWeight="Bold" Foreground="#FF096DA7" Height="100" HorizontalAlignment="Left" Margin="511,145,0,0" Name="buttonFermer" Panel.ZIndex="10" VerticalAlignment="Top" Width="62" Click="buttonFermer_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF3F3F3" Offset="0" />
+                    <GradientStop Color="#FFEBEBEB" Offset="0.5" />
+                    <GradientStop Color="#FFDDDDDD" Offset="0.5" />
+                    <GradientStop Color="#FF3F3F3F" Offset="1" />
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="ButtonBase.ClickMode" Value="Release" />
+                </Style>
+            </Button.Style>
+        </Button>
+    </Grid>
+</UserControl>

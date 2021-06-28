@@ -1,0 +1,99 @@
+mise à jour correcte de ArmoireId dans les différentes méthodes d'update epc
+
+26/08/2013 :	codage de nouvelles méthodes de synchro encadrant la connexion par un bloc using
+
+28/08/2013 :	intégration des méthodes de synchro dans l'ensemble du programme en remplacement des anciennes méthodes.
+
+02/09/2013 :	remonter dans la table alert des erreurs de connexion
+		fichiers modifiés : synchro.cs
+					méthode : testConnexion()
+				    MainWindows.xaml.cs
+					méthodes : synchUserTimer()
+						   synch()
+						   synchLoad()
+						   synchError()
+						   synchReload()
+						   synchUser()
+						   synchRestitution()
+
+11/09/2013 : on décrémente le crédit restant dans user_article en ne tenant plus compte de la taille
+		on l'incrémente à la restitution de la même façon.
+
+		fichiers modifiés : MainWindows.xaml.cs
+					méthodes : updateListBox()
+				    DataManager.cs
+					méthode : UpdateUserArticleRestitution(epc epc)
+
+13/09/2013 : 	Gestion de l'envoi des tags dans les alertes de type intrus avec prise en compte des états connu et inconnu
+
+					
+16/09/2013:
+		- validation_article: filtre pour ne pas afficher les vêtements dont le crédit_max est à 0
+		- main_window: ajout de la synchro logEPC dans syncUserTimer
+			       alerte articles manquants uniquement pour les tailles présentent dans le plan de chargement
+		- ajout de la classe : ArtTaille
+
+17/09/2013:	Supression de la table armoire dans ModelArmoireV3.edmx et désactivation de toutes les méthodes associées
+
+		Mise à jour ModelArmoireV3.edmx avec la nouvelle structure mise en oeuvre par S.Manigault (cf fichier armoirev3.sql présent dans ce dossier)
+
+
+19/09/2013:	mise à jour synchro.cs et DataManager.cs pour la base de données v3 en bas et en haut
+
+20/09/2013:	prise en compte de l'état Actif des epc
+		Suppression de la classe ArtTaille (inutile depuis la bdd v3)
+		note: les mises à jour effectuées à partir du 17/09/2013 nécéssitent une base d'en bas V3
+		
+		table version non exploitée
+		
+		ajout de BDDsynchV3 dans les paramêtres. Ce paramêtre permet à l'appli de fonctionner
+		avec des versions V3 et V2 de base d'en haut afin d'assurer une rétro compatibilité
+
+23/09/2013:	modification du modèle edmx. (table article_type, champs type-taille -> type_taille)
+
+		correction datamanager.cs : prise en compte epc.State à 4 dans la méthode updateEpcReload 
+
+26/09/2013:	correction du bug de non remonté du tag inconnu en alert_id 19 et 20
+
+03/10/2013:	correction du bug F15 rencontré en test initial du 24/07/2013
+
+07/10/2013:	intrus connus inséré par reloader :
+			on l'ajoute à itemIntruder
+			on le passe correctement à l'état 5
+
+12/11/2013: synchro.cs : correction de synchroepc avec prise en compte de l'état 4 (sortie taille différente)
+
+14/12/2013:	ajout dans MainWindows.xaml.cs permettant de parer au multi-instance du programme
+
+19/12/2013: Limitation de la session utilisateur inactive (Concerne les phases de Selection et Validation Article)
+			Conservation de l'affichage réduit dans le cas de l'option DEBUG dans login
+			Affichage du n° de version logicielle dans le log 
+			Traitement de la fin de validité d'un utilisateur
+
+23/12/2013: Création de la classe User.cs afin de se couper du model edmx dans DataManager.cs->infoUser()
+		synchroAlert() Modifié mais pas encore optimum !
+
+
+30/12/2013: ajout de la classe User.cs
+	    création de DataManagerV3.cs l'utilisant (copie de DataManager.cs modifiée)
+		IEnumerable<User> infoUser(int id)
+
+31/12/2013: ajout des classes Log_Epc.cs, Content_Arm.cs, Alert.cs
+	    ajout dans DataManagerV3.cs des méthodes :
+		IEnumerable<Log_Epc> synchroLogEPC()
+		IEnumerable<Content_Arm> synchroContent()
+		IEnumerable<Alert> synchroAlert()
+		
+30/04/2013: A compléter (Ajout règle des changes, suppression modèle EDMX, modification du traitement des alertes, 
+		correction dans la gestion des crédits et dans la mise à jour du plan de chargement, ajout du n° de version 
+		dans la table version)
+
+15/05/2014: Ajout de catch dans le traitement des exceptions pour le traitement du RAIL (
+		pour éviter des blocages de l'application dans le cas où le rail est absent).		
+20/05/2014 : Cette version comprend les règles de change, la limitation à la semaine et la limitation journaliaire.
+21/05/2014 : Correction du code pour l'option de compilation OPTLANG
+				
+25/05/2014 : Ajout d'un mécanisme pour éviter les synchronisations UserTimer en session
+21/05/2014 : Correction de la fonction UserTimer (ajout de tests dans la condition "session en cours")
+28/05/2014 : Mise à jour des intrus suite à un changement du plan de chargement
+03/06/2014 : Correction SQL provoquant une exception dans la méthode GetNumberOfArticlesInLogEpcForLastDay

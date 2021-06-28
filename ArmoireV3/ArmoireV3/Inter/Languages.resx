@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="addDataError" xml:space="preserve">
+    <value>Error adding data: </value>
+  </data>
+  <data name="alertSyncError" xml:space="preserve">
+    <value>Alert Sync Error: </value>
+  </data>
+  <data name="articleUpCase" xml:space="preserve">
+    <value>ITEM</value>
+  </data>
+  <data name="buttonDeconnexion" xml:space="preserve">
+    <value>LOGOUT</value>
+  </data>
+  <data name="capMax" xml:space="preserve">
+    <value>Maximum Capacity: </value>
+  </data>
+  <data name="connectDBfail" xml:space="preserve">
+    <value>Failed to connect to Database.</value>
+  </data>
+  <data name="curInCab" xml:space="preserve">
+    <value>Currently in the cabinet: </value>
+  </data>
+  <data name="cusoon" xml:space="preserve">
+    <value>Please close the cabinet after removing your selection. Thank you and goodbye.</value>
+  </data>
+  <data name="dbError" xml:space="preserve">
+    <value>Database error: </value>
+  </data>
+  <data name="discTip" xml:space="preserve">
+    <value>Think to disconnect before leaving !</value>
+  </data>
+  <data name="doorSensor" xml:space="preserve">
+    <value>door sensor </value>
+  </data>
+  <data name="errorOccurred" xml:space="preserve">
+    <value>An error has occurred:
+</value>
+  </data>
+  <data name="globalSyncError" xml:space="preserve">
+    <value>Global Sync Error: </value>
+  </data>
+  <data name="hello" xml:space="preserve">
+    <value>Hello  </value>
+  </data>
+  <data name="inactiveUser" xml:space="preserve">
+    <value>Inactive user</value>
+  </data>
+  <data name="insertAlertError" xml:space="preserve">
+    <value>insertAlert error: </value>
+  </data>
+  <data name="insertDataError" xml:space="preserve">
+    <value>Error inserting data: </value>
+  </data>
+  <data name="insertTagAlertError" xml:space="preserve">
+    <value>insertTagAlert error: </value>
+  </data>
+  <data name="intru" xml:space="preserve">
+    <value> intruders</value>
+  </data>
+  <data name="LEDcardError" xml:space="preserve">
+    <value>LED card error: </value>
+  </data>
+  <data name="loadSyncError" xml:space="preserve">
+    <value>Load Sync Error: </value>
+  </data>
+  <data name="loginError" xml:space="preserve">
+    <value>login error: </value>
+  </data>
+  <data name="mainWinError" xml:space="preserve">
+    <value>Main Window - Error:</value>
+  </data>
+  <data name="max" xml:space="preserve">
+    <value>Max :</value>
+  </data>
+  <data name="myLocker" xml:space="preserve">
+    <value>MY LOCKER</value>
+  </data>
+  <data name="mySelect" xml:space="preserve">
+    <value>MY SELECTION</value>
+  </data>
+  <data name="nbArtCab" xml:space="preserve">
+    <value> items in the cabinet, including </value>
+  </data>
+  <data name="noBadgeReader" xml:space="preserve">
+    <value>Badge reader not present</value>
+  </data>
+  <data name="noLEDcard" xml:space="preserve">
+    <value>LED card not present</value>
+  </data>
+  <data name="noRail" xml:space="preserve">
+    <value>No rail</value>
+  </data>
+  <data name="notinStock1" xml:space="preserve">
+    <value>Item, code</value>
+  </data>
+  <data name="notinStock2" xml:space="preserve">
+    <value> in size </value>
+  </data>
+  <data name="notinStock3" xml:space="preserve">
+    <value> are no longer in stock</value>
+  </data>
+  <data name="ongoingService" xml:space="preserve">
+    <value>Ongoing service...</value>
+  </data>
+  <data name="open" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="openCab1minError" xml:space="preserve">
+    <value>Cabinet opened since more than 1 minute</value>
+  </data>
+  <data name="openCab30secError" xml:space="preserve">
+    <value>Cabinet opened since more than 30 seconds</value>
+  </data>
+  <data name="opWithoutRef" xml:space="preserve">
+    <value>Operation without refund: </value>
+  </data>
+  <data name="opWithoutSync" xml:space="preserve">
+    <value>Operating without synchro: </value>
+  </data>
+  <data name="posInCab" xml:space="preserve">
+    <value>POSITION IN THE CABINET</value>
+  </data>
+  <data name="quant" xml:space="preserve">
+    <value>Quantity : </value>
+  </data>
+  <data name="reloadSyncError" xml:space="preserve">
+    <value>Reload Sync Error: </value>
+  </data>
+  <data name="restSyncError" xml:space="preserve">
+    <value>Restitution Sync Error: </value>
+  </data>
+  <data name="returnText" xml:space="preserve">
+    <value>Return</value>
+  </data>
+  <data name="RFIDScanRetraitError" xml:space="preserve">
+    <value>RFIDScanRetrait Error: </value>
+  </data>
+  <data name="scanError" xml:space="preserve">
+    <value>Error scan: </value>
+  </data>
+  <data name="secRemain" xml:space="preserve">
+    <value>seconds remaining.</value>
+  </data>
+  <data name="selectOutfit" xml:space="preserve">
+    <value>Now you can select your outfits.
+</value>
+  </data>
+  <data name="size" xml:space="preserve">
+    <value>Size : </value>
+  </data>
+  <data name="synchroCabError" xml:space="preserve">
+    <value>Error during synchronization of the cabinet: </value>
+  </data>
+  <data name="synchroInitError" xml:space="preserve">
+    <value>synchro init error</value>
+  </data>
+  <data name="syncInitError" xml:space="preserve">
+    <value>Synchro initialization error: </value>
+  </data>
+  <data name="systemError" xml:space="preserve">
+    <value>System Error</value>
+  </data>
+  <data name="textBoxErreur" xml:space="preserve">
+    <value>ERROR</value>
+  </data>
+  <data name="textBoxErreurImpinj" xml:space="preserve">
+    <value>RFID reader is not connected</value>
+  </data>
+  <data name="textBoxErreurImpinjRestitution" xml:space="preserve">
+    <value>Restitution is not connected</value>
+  </data>
+  <data name="textBoxInsererBadge" xml:space="preserve">
+    <value>PLACE YOUR BADGE</value>
+  </data>
+  <data name="textBoxMagnetoID" xml:space="preserve">
+    <value>Your smart cabinet.</value>
+  </data>
+  <data name="thereR" xml:space="preserve">
+    <value>There are </value>
+  </data>
+  <data name="unhandledErrorOcc" xml:space="preserve">
+    <value>An unhandled error occurred. The program will close. Details:
+</value>
+  </data>
+  <data name="updateAlertsProblem" xml:space="preserve">
+    <value>Could not update alerts: </value>
+  </data>
+  <data name="updateDataError" xml:space="preserve">
+    <value>Error updating data: </value>
+  </data>
+  <data name="updateEpcReloadTagError" xml:space="preserve">
+    <value>updateEpcReload: Tag inexistent</value>
+  </data>
+  <data name="updateEpcRestitutionTagError" xml:space="preserve">
+    <value>updateEpcRestitution: Tag inexistent</value>
+  </data>
+  <data name="updateError" xml:space="preserve">
+    <value>Error update</value>
+  </data>
+  <data name="userSyncError" xml:space="preserve">
+    <value>User Sync Error: </value>
+  </data>
+  <data name="userTimerSyncError" xml:space="preserve">
+    <value>userTimer sync error: </value>
+  </data>
+  <data name="validate" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="waitDuringScan" xml:space="preserve">
+    <value>Ongoing scan. Please wait ...</value>
+  </data>
+  <data name="welcome" xml:space="preserve">
+    <value>Welcome !</value>
+  </data>
+  <data name="welIDbox" xml:space="preserve">
+    <value> and welcome in your space ID box.
+</value>
+  </data>
+  <data name="wrongUserType" xml:space="preserve">
+    <value>Wrong type of user</value>
+  </data>
+  <data name="zsyncLoadError" xml:space="preserve">
+    <value>zsyncLoad Error: </value>
+  </data>
+  <data name="zsyncUserError" xml:space="preserve">
+    <value>zsyncUser Error: </value>
+  </data>
+  <data name="notEnoughCredits" xml:space="preserve">
+    <value>You don't have enough credits</value>
+  </data>
+  <data name="outofstock" xml:space="preserve">
+    <value>Out of stock</value>
+  </data>
+  <data name="propositionSizeSup" xml:space="preserve">
+    <value>The selected item is temporarily not available in the requested size. 
+We offer you exceptionally to select the larger size. 
+We thank you for your understanding 
+
+Do you desire a larger article?</value>
+  </data>
+  <data name="reqLargerArticleCondition" xml:space="preserve">
+    <value>To select a larger item,
+please log in again after the withdrawal of the selected item</value>
+  </data>
+  <data name="credit" xml:space="preserve">
+    <value>Credit: </value>
+  </data>
+  <data name="incorLogin" xml:space="preserve">
+    <value>Incorrect login</value>
+  </data>
+  <data name="sizeUpCase" xml:space="preserve">
+    <value>SIZE</value>
+  </data>
+  <data name="OutofDateUserType" xml:space="preserve">
+    <value>Expiry date exceeded</value>
+  </data>
+  <data name="textBoxErreurRailAvailable" xml:space="preserve">
+    <value>Error RAIL not connected</value>
+  </data>
+  <data name="textBoxErreurInitialisation" xml:space="preserve">
+    <value>Initialization, Please wait!</value>
+  </data>
+  <data name="newmap" xml:space="preserve">
+    <value>Load new map.</value>
+  </data>
+  <data name="textBoxErreurLocalBDDAvailable" xml:space="preserve">
+    <value>BDD Error</value>
+  </data>
+  <data name="maxItemToday" xml:space="preserve">
+    <value>You have exceeded your daily quota</value>
+  </data>
+  <data name="yourOrder" xml:space="preserve">
+    <value>Your order :</value>
+  </data>
+  <data name="close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="evalContent" xml:space="preserve">
+    <value>Please open and close the cabinet to re-evaluate the content, thanks.</value>
+  </data>
+  <data name="failedSync" xml:space="preserve">
+    <value>Synchronization failed</value>
+  </data>
+  <data name="problemTryAgain" xml:space="preserve">
+    <value>A problem was encountered, please try again later.</value>
+  </data>
+  <data name="wait" xml:space="preserve">
+    <value>Wait!!!</value>
+  </data>
+  <data name="errorArticleType" xml:space="preserve">
+    <value>Error in article_type</value>
+  </data>
+</root>

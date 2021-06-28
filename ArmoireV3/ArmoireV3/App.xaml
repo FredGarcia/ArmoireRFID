@@ -1,0 +1,11 @@
+﻿<Application x:Class="ArmoireV3.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml"
+             SessionEnding="App_SessionEnding" >
+    <Application.Resources>
+  
+
+          
+    </Application.Resources>
+</Application>

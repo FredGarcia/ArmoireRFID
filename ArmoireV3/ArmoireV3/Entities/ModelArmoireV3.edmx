@@ -1,0 +1,696 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ArmoireV3Model.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ArmoireV3ModelStoreContainer">
+          <EntitySet Name="_heartbeat" EntityType="ArmoireV3Model.Store._heartbeat" store:Type="Tables" Schema="armoirev3" />
+          <EntitySet Name="alert" EntityType="ArmoireV3Model.Store.alert" store:Type="Tables" Schema="armoirev3" />
+          <EntitySet Name="alert_type" EntityType="ArmoireV3Model.Store.alert_type" store:Type="Tables" Schema="armoirev3" />
+          <EntitySet Name="article_taille" EntityType="ArmoireV3Model.Store.article_taille" store:Type="Tables" Schema="armoirev3" />
+          <EntitySet Name="article_type" EntityType="ArmoireV3Model.Store.article_type" store:Type="Tables" Schema="armoirev3" />
+          <EntitySet Name="case" EntityType="ArmoireV3Model.Store.case" store:Type="Tables" Schema="armoirev3" />
+          <EntitySet Name="content_arm" EntityType="ArmoireV3Model.Store.content_arm" store:Type="Tables" Schema="armoirev3" />
+          <EntitySet Name="corresp_lang" EntityType="ArmoireV3Model.Store.corresp_lang" store:Type="Tables" Schema="armoirev3" />
+          <EntitySet Name="corresp_taille" EntityType="ArmoireV3Model.Store.corresp_taille" store:Type="Tables" Schema="armoirev3" />
+          <EntitySet Name="epc" EntityType="ArmoireV3Model.Store.epc" store:Type="Tables" Schema="armoirev3" />
+          <EntitySet Name="log_epc" EntityType="ArmoireV3Model.Store.log_epc" store:Type="Tables" Schema="armoirev3" />
+          <EntitySet Name="state" EntityType="ArmoireV3Model.Store.state" store:Type="Tables" Schema="armoirev3" />
+          <EntitySet Name="tag_alert" EntityType="ArmoireV3Model.Store.tag_alert" store:Type="Tables" Schema="armoirev3" />
+          <EntitySet Name="user" EntityType="ArmoireV3Model.Store.user" store:Type="Tables" Schema="armoirev3" />
+          <EntitySet Name="user_article" EntityType="ArmoireV3Model.Store.user_article" store:Type="Tables" Schema="armoirev3" />
+          <EntitySet Name="version" EntityType="ArmoireV3Model.Store.version" store:Type="Tables" Schema="armoirev3" />
+        </EntityContainer>
+        <EntityType Name="_heartbeat">
+          <Key>
+            <PropertyRef Name="SYSID" />
+          </Key>
+          <Property Name="SYSID" Type="int" Nullable="false" />
+          <Property Name="HBDATE" Type="datetime" Nullable="false" />
+          <Property Name="SYNCHRODATE" Type="datetime" Nullable="false" />
+          <Property Name="STATE" Type="text" Nullable="false" />
+          <Property Name="DETAILS" Type="varchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="alert">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Date_Creation" Type="datetime" Nullable="false" />
+          <Property Name="Alert_Type_Id" Type="int" Nullable="false" />
+          <Property Name="Message" Type="varchar" Nullable="false" MaxLength="2500" />
+          <Property Name="User_ID" Type="int" Nullable="false" />
+          <Property Name="Armoire_ID" Type="int" Nullable="false" />
+          <Property Name="Traiter" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="alert_type">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Type" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Code" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Description" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Niveau" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Contact" Type="varchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="article_taille">
+          <Key>
+            <PropertyRef Name="Article_Type_ID" />
+            <PropertyRef Name="Taille" />
+            <PropertyRef Name="Armoire" />
+          </Key>
+          <Property Name="Article_Type_ID" Type="int" Nullable="false" />
+          <Property Name="Taille" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Armoire" Type="int" Nullable="false" />
+          <Property Name="Vide" Type="bool" Nullable="false" />
+        </EntityType>
+        <EntityType Name="article_type">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Date_Creation" Type="datetime" Nullable="false" />
+          <Property Name="Date_Modification" Type="datetime" Nullable="false" />
+          <Property Name="Code" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Type_Taille" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="Description" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Couleur" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Sexe" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Photo" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Active" Type="int" Nullable="false" />
+          <Property Name="Description_longue" Type="varchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="case">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Bind_ID" Type="int" Nullable="false" />
+          <Property Name="Taille" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Date_Creation" Type="datetime" Nullable="false" />
+          <Property Name="Max_Item" Type="int" Nullable="false" />
+          <Property Name="Article_Type_Id" Type="int" Nullable="false" />
+          <Property Name="Armoire_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="content_arm">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Creation_Date" Type="datetime" Nullable="false" />
+          <Property Name="Epc" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="State" Type="int" Nullable="false" />
+          <Property Name="RFID_Reader" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="corresp_lang">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="cultureName" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Language" Type="varchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="corresp_taille">
+          <Key>
+            <PropertyRef Name="Type-Taille" />
+            <PropertyRef Name="Taille" />
+          </Key>
+          <Property Name="Type-Taille" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="Taille" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Classement_tailles" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="epc">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Date_Creation" Type="datetime" Nullable="false" />
+          <Property Name="Date_Modification" Type="datetime" Nullable="false" />
+          <Property Name="Tag" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Code_Barre" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Taille" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Type_Taille" Type="char" Nullable="false" MaxLength="1" />
+          <Property Name="Cycle_Lavage_Count" Type="int" Nullable="false" />
+          <Property Name="State" Type="int" Nullable="false" />
+          <Property Name="Last_User" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Last_Reader" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Last_Action" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Last_Action_Date" Type="datetime" Nullable="false" />
+          <Property Name="Movement" Type="int" Nullable="false" />
+          <Property Name="Article_Type_ID" Type="int" Nullable="false" />
+          <Property Name="Case_ID" Type="int" Nullable="false" />
+          <Property Name="Armoire_ID" Type="int" Nullable="false" />
+          <Property Name="Actif" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="log_epc">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Date_Creation" Type="datetime" Nullable="false" />
+          <Property Name="Epc_Id" Type="int" Nullable="false" />
+          <Property Name="Tag" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Code_Barre" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Taille" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Cycle_Lavage_Count" Type="int" Nullable="false" />
+          <Property Name="State" Type="int" Nullable="false" />
+          <Property Name="Last_User" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Last_Reader" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Last_Action" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Last_Action_Date" Type="datetime" Nullable="false" />
+          <Property Name="Movement" Type="int" Nullable="false" />
+          <Property Name="Article_Type_ID" Type="int" Nullable="false" />
+          <Property Name="Case_ID" Type="int" Nullable="false" />
+          <Property Name="Armoire_ID" Type="int" Nullable="false" />
+          <Property Name="Synchronised" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="state">
+          <Key>
+            <PropertyRef Name="STATE_ID" />
+          </Key>
+          <Property Name="STATE_ID" Type="int" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="NEXT_STATE" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tag_alert">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Date_Creation" Type="datetime" Nullable="false" />
+          <Property Name="Alert_ID" Type="int" Nullable="false" />
+          <Property Name="Tag_Command" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Tag_Retir" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Tag_Intrus" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Article_Type_Code" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Taille" Type="varchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Date_Creation" Type="datetime" Nullable="false" />
+          <Property Name="Date_Modification" Type="datetime" Nullable="false" />
+          <Property Name="Login" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Password" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Type" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Nom" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Prenom" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Id_Lang" Type="int" Nullable="false" />
+          <Property Name="Sexe" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Taille" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Groupe" Type="int" Nullable="false" />
+          <Property Name="Department" Type="int" Nullable="false" />
+          <Property Name="Photo" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Last_Connection" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="int" Nullable="false" />
+          <Property Name="End_of_Validity" Type="datetime" Nullable="false" />
+          <Property Name="Wearer_Code" Type="varchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="user_article">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Date_Creation" Type="datetime" Nullable="false" />
+          <Property Name="Date_Modification" Type="datetime" Nullable="false" />
+          <Property Name="Taille" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="Credit" Type="int" Nullable="false" />
+          <Property Name="Credit_Restant" Type="int" Nullable="false" />
+          <Property Name="User_Id" Type="int" Nullable="false" />
+          <Property Name="Article_Type_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="version">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="NomPlace" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="VersLog" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="VersMat" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="DateSynchro" Type="datetime" Nullable="false" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ArmoireV3Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="ArmoireV3Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C_heartbeat" EntityType="ArmoireV3Model.C_heartbeat" />
+          <EntitySet Name="alert" EntityType="ArmoireV3Model.alert" />
+          <EntitySet Name="alert_type" EntityType="ArmoireV3Model.alert_type" />
+          <EntitySet Name="case" EntityType="ArmoireV3Model.case" />
+          <EntitySet Name="content_arm" EntityType="ArmoireV3Model.content_arm" />
+          <EntitySet Name="epc" EntityType="ArmoireV3Model.epc" />
+          <EntitySet Name="log_epc" EntityType="ArmoireV3Model.log_epc" />
+          <EntitySet Name="state" EntityType="ArmoireV3Model.state" />
+          <EntitySet Name="tag_alert" EntityType="ArmoireV3Model.tag_alert" />
+          <EntitySet Name="user" EntityType="ArmoireV3Model.user" />
+          <EntitySet Name="user_article" EntityType="ArmoireV3Model.user_article" />
+          <EntitySet Name="corresp_lang" EntityType="ArmoireV3Model.corresp_lang" />
+          <EntitySet Name="version" EntityType="ArmoireV3Model.version" />
+          <EntitySet Name="article_taille" EntityType="ArmoireV3Model.article_taille" />
+          <EntitySet Name="article_type" EntityType="ArmoireV3Model.article_type" />
+          <EntitySet Name="corresp_taille" EntityType="ArmoireV3Model.corresp_taille" />
+        </EntityContainer>
+        <EntityType Name="C_heartbeat">
+          <Key>
+            <PropertyRef Name="SYSID" />
+          </Key>
+          <Property Name="SYSID" Type="Int32" Nullable="false" />
+          <Property Name="HBDATE" Type="DateTime" Nullable="false" />
+          <Property Name="SYNCHRODATE" Type="DateTime" Nullable="false" />
+          <Property Name="STATE" Type="String" Nullable="false" MaxLength="65535" Unicode="false" FixedLength="false" />
+          <Property Name="DETAILS" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="alert">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date_Creation" Type="DateTime" Nullable="false" />
+          <Property Name="Alert_Type_Id" Type="Int32" Nullable="false" />
+          <Property Name="Message" Type="String" Nullable="false" MaxLength="2500" Unicode="false" FixedLength="false" />
+          <Property Name="User_ID" Type="Int32" Nullable="false" />
+          <Property Name="Armoire_ID" Type="Int32" Nullable="false" />
+          <Property Name="Traiter" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="alert_type">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Niveau" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Contact" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="case">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Bind_ID" Type="Int32" Nullable="false" />
+          <Property Name="Taille" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Date_Creation" Type="DateTime" Nullable="false" />
+          <Property Name="Max_Item" Type="Int32" Nullable="false" />
+          <Property Name="Article_Type_Id" Type="Int32" Nullable="false" />
+          <Property Name="Armoire_ID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="content_arm">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Creation_Date" Type="DateTime" Nullable="false" />
+          <Property Name="Epc" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="State" Type="Int32" Nullable="false" />
+          <Property Name="RFID_Reader" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="epc">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Date_Creation" Type="DateTime" Nullable="false" />
+          <Property Name="Date_Modification" Type="DateTime" Nullable="false" />
+          <Property Name="Tag" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Code_Barre" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Taille" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Type_Taille" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="Cycle_Lavage_Count" Type="Int32" Nullable="false" />
+          <Property Name="State" Type="Int32" Nullable="false" />
+          <Property Name="Last_User" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Last_Reader" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Last_Action" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Last_Action_Date" Type="DateTime" Nullable="false" />
+          <Property Name="Movement" Type="Int32" Nullable="false" />
+          <Property Name="Article_Type_ID" Type="Int32" Nullable="false" />
+          <Property Name="Case_ID" Type="Int32" Nullable="false" />
+          <Property Name="Armoire_ID" Type="Int32" Nullable="false" />
+          <Property Type="Int32" Name="Actif" Nullable="false" />
+        </EntityType>
+        <EntityType Name="log_epc">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date_Creation" Type="DateTime" Nullable="false" />
+          <Property Name="Epc_Id" Type="Int32" Nullable="false" />
+          <Property Name="Tag" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Code_Barre" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Taille" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Cycle_Lavage_Count" Type="Int32" Nullable="false" />
+          <Property Name="State" Type="Int32" Nullable="false" />
+          <Property Name="Last_User" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Last_Reader" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Last_Action" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Last_Action_Date" Type="DateTime" Nullable="false" />
+          <Property Name="Movement" Type="Int32" Nullable="false" />
+          <Property Name="Article_Type_ID" Type="Int32" Nullable="false" />
+          <Property Name="Case_ID" Type="Int32" Nullable="false" />
+          <Property Name="Armoire_ID" Type="Int32" Nullable="false" />
+          <Property Name="Synchronised" Type="SByte" Nullable="false" />
+        </EntityType>
+        <EntityType Name="state">
+          <Key>
+            <PropertyRef Name="STATE_ID" />
+          </Key>
+          <Property Name="STATE_ID" Type="Int32" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="NEXT_STATE" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tag_alert">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date_Creation" Type="DateTime" Nullable="false" />
+          <Property Name="Alert_ID" Type="Int32" Nullable="false" />
+          <Property Name="Tag_Command" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Tag_Retir" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Tag_Intrus" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Article_Type_Code" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Taille" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Date_Creation" Type="DateTime" Nullable="false" />
+          <Property Name="Date_Modification" Type="DateTime" Nullable="false" />
+          <Property Name="Login" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Nom" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Prenom" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Sexe" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Taille" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Groupe" Type="Int32" Nullable="false" />
+          <Property Name="Department" Type="Int32" Nullable="false" />
+          <Property Name="Photo" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Last_Connection" Type="DateTime" Nullable="false" />
+          <Property Name="Active" Type="Int32" Nullable="false" />
+          <Property Type="Int32" Name="Id_Lang" Nullable="false" />
+          <Property Type="DateTime" Name="End_of_Validity" Nullable="false" />
+          <Property Type="String" Name="Wearer_Code" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="user_article">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Date_Creation" Type="DateTime" Nullable="false" />
+          <Property Name="Date_Modification" Type="DateTime" Nullable="false" />
+          <Property Name="Taille" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Credit" Type="Int32" Nullable="false" />
+          <Property Name="Credit_Restant" Type="Int32" Nullable="false" />
+          <Property Name="User_Id" Type="Int32" Nullable="false" />
+          <Property Name="Article_Type_Id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="corresp_lang">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="cultureName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Language" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="version">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="NomPlace" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VersLog" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="VersMat" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="DateSynchro" Nullable="false" />
+        </EntityType>
+        <EntityType Name="article_taille">
+          <Key>
+            <PropertyRef Name="Article_Type_ID" />
+            <PropertyRef Name="Taille" />
+            <PropertyRef Name="Armoire" />
+          </Key>
+          <Property Type="Int32" Name="Article_Type_ID" Nullable="false" />
+          <Property Type="String" Name="Taille" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Armoire" Nullable="false" />
+          <Property Type="Boolean" Name="Vide" Nullable="false" />
+        </EntityType>
+        <EntityType Name="article_type">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="DateTime" Name="Date_Creation" Nullable="false" />
+          <Property Type="DateTime" Name="Date_Modification" Nullable="false" />
+          <Property Type="String" Name="Code" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Type_Taille" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Couleur" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Sexe" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Photo" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Active" Nullable="false" />
+          <Property Type="String" Name="Description_longue" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="corresp_taille">
+          <Key>
+            <PropertyRef Name="Type_Taille" />
+            <PropertyRef Name="Taille" />
+          </Key>
+          <Property Type="String" Name="Type_Taille" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Taille" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Classement_tailles" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ArmoireV3ModelStoreContainer" CdmEntityContainer="ArmoireV3Entities">
+          <EntitySetMapping Name="C_heartbeat"><EntityTypeMapping TypeName="ArmoireV3Model.C_heartbeat"><MappingFragment StoreEntitySet="_heartbeat">
+            <ScalarProperty Name="SYSID" ColumnName="SYSID" />
+            <ScalarProperty Name="HBDATE" ColumnName="HBDATE" />
+            <ScalarProperty Name="SYNCHRODATE" ColumnName="SYNCHRODATE" />
+            <ScalarProperty Name="STATE" ColumnName="STATE" />
+            <ScalarProperty Name="DETAILS" ColumnName="DETAILS" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="alert"><EntityTypeMapping TypeName="ArmoireV3Model.alert"><MappingFragment StoreEntitySet="alert">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Date_Creation" ColumnName="Date_Creation" />
+            <ScalarProperty Name="Alert_Type_Id" ColumnName="Alert_Type_Id" />
+            <ScalarProperty Name="Message" ColumnName="Message" />
+            <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+            <ScalarProperty Name="Armoire_ID" ColumnName="Armoire_ID" />
+            <ScalarProperty Name="Traiter" ColumnName="Traiter" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="alert_type"><EntityTypeMapping TypeName="ArmoireV3Model.alert_type"><MappingFragment StoreEntitySet="alert_type">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Type" ColumnName="Type" />
+            <ScalarProperty Name="Code" ColumnName="Code" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="Niveau" ColumnName="Niveau" />
+            <ScalarProperty Name="Contact" ColumnName="Contact" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="case"><EntityTypeMapping TypeName="ArmoireV3Model.case"><MappingFragment StoreEntitySet="case">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Bind_ID" ColumnName="Bind_ID" />
+            <ScalarProperty Name="Taille" ColumnName="Taille" />
+            <ScalarProperty Name="Date_Creation" ColumnName="Date_Creation" />
+            <ScalarProperty Name="Max_Item" ColumnName="Max_Item" />
+            <ScalarProperty Name="Article_Type_Id" ColumnName="Article_Type_Id" />
+            <ScalarProperty Name="Armoire_ID" ColumnName="Armoire_ID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="content_arm"><EntityTypeMapping TypeName="ArmoireV3Model.content_arm"><MappingFragment StoreEntitySet="content_arm">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Creation_Date" ColumnName="Creation_Date" />
+            <ScalarProperty Name="Epc" ColumnName="Epc" />
+            <ScalarProperty Name="State" ColumnName="State" />
+            <ScalarProperty Name="RFID_Reader" ColumnName="RFID_Reader" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="epc"><EntityTypeMapping TypeName="ArmoireV3Model.epc"><MappingFragment StoreEntitySet="epc">
+            <ScalarProperty Name="Actif" ColumnName="Actif" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Date_Creation" ColumnName="Date_Creation" />
+            <ScalarProperty Name="Date_Modification" ColumnName="Date_Modification" />
+            <ScalarProperty Name="Tag" ColumnName="Tag" />
+            <ScalarProperty Name="Code_Barre" ColumnName="Code_Barre" />
+            <ScalarProperty Name="Taille" ColumnName="Taille" />
+            <ScalarProperty Name="Type_Taille" ColumnName="Type_Taille" />
+            <ScalarProperty Name="Cycle_Lavage_Count" ColumnName="Cycle_Lavage_Count" />
+            <ScalarProperty Name="State" ColumnName="State" />
+            <ScalarProperty Name="Last_User" ColumnName="Last_User" />
+            <ScalarProperty Name="Last_Reader" ColumnName="Last_Reader" />
+            <ScalarProperty Name="Last_Action" ColumnName="Last_Action" />
+            <ScalarProperty Name="Last_Action_Date" ColumnName="Last_Action_Date" />
+            <ScalarProperty Name="Movement" ColumnName="Movement" />
+            <ScalarProperty Name="Article_Type_ID" ColumnName="Article_Type_ID" />
+            <ScalarProperty Name="Case_ID" ColumnName="Case_ID" />
+            <ScalarProperty Name="Armoire_ID" ColumnName="Armoire_ID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="log_epc"><EntityTypeMapping TypeName="ArmoireV3Model.log_epc"><MappingFragment StoreEntitySet="log_epc">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Date_Creation" ColumnName="Date_Creation" />
+            <ScalarProperty Name="Epc_Id" ColumnName="Epc_Id" />
+            <ScalarProperty Name="Tag" ColumnName="Tag" />
+            <ScalarProperty Name="Code_Barre" ColumnName="Code_Barre" />
+            <ScalarProperty Name="Taille" ColumnName="Taille" />
+            <ScalarProperty Name="Cycle_Lavage_Count" ColumnName="Cycle_Lavage_Count" />
+            <ScalarProperty Name="State" ColumnName="State" />
+            <ScalarProperty Name="Last_User" ColumnName="Last_User" />
+            <ScalarProperty Name="Last_Reader" ColumnName="Last_Reader" />
+            <ScalarProperty Name="Last_Action" ColumnName="Last_Action" />
+            <ScalarProperty Name="Last_Action_Date" ColumnName="Last_Action_Date" />
+            <ScalarProperty Name="Movement" ColumnName="Movement" />
+            <ScalarProperty Name="Article_Type_ID" ColumnName="Article_Type_ID" />
+            <ScalarProperty Name="Case_ID" ColumnName="Case_ID" />
+            <ScalarProperty Name="Armoire_ID" ColumnName="Armoire_ID" />
+            <ScalarProperty Name="Synchronised" ColumnName="Synchronised" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="state"><EntityTypeMapping TypeName="ArmoireV3Model.state"><MappingFragment StoreEntitySet="state">
+            <ScalarProperty Name="STATE_ID" ColumnName="STATE_ID" />
+            <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+            <ScalarProperty Name="NEXT_STATE" ColumnName="NEXT_STATE" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="tag_alert"><EntityTypeMapping TypeName="ArmoireV3Model.tag_alert"><MappingFragment StoreEntitySet="tag_alert">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Date_Creation" ColumnName="Date_Creation" />
+            <ScalarProperty Name="Alert_ID" ColumnName="Alert_ID" />
+            <ScalarProperty Name="Tag_Command" ColumnName="Tag_Command" />
+            <ScalarProperty Name="Tag_Retir" ColumnName="Tag_Retir" />
+            <ScalarProperty Name="Tag_Intrus" ColumnName="Tag_Intrus" />
+            <ScalarProperty Name="Article_Type_Code" ColumnName="Article_Type_Code" />
+            <ScalarProperty Name="Taille" ColumnName="Taille" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="user"><EntityTypeMapping TypeName="ArmoireV3Model.user"><MappingFragment StoreEntitySet="user">
+            <ScalarProperty Name="Wearer_Code" ColumnName="Wearer_Code" />
+                <ScalarProperty Name="End_of_Validity" ColumnName="End_of_Validity" />
+                <ScalarProperty Name="Id_Lang" ColumnName="Id_Lang" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Date_Creation" ColumnName="Date_Creation" />
+            <ScalarProperty Name="Date_Modification" ColumnName="Date_Modification" />
+            <ScalarProperty Name="Login" ColumnName="Login" />
+            <ScalarProperty Name="Password" ColumnName="Password" />
+            <ScalarProperty Name="Type" ColumnName="Type" />
+            <ScalarProperty Name="Nom" ColumnName="Nom" />
+            <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+            <ScalarProperty Name="Sexe" ColumnName="Sexe" />
+            <ScalarProperty Name="Taille" ColumnName="Taille" />
+            <ScalarProperty Name="Groupe" ColumnName="Groupe" />
+            <ScalarProperty Name="Department" ColumnName="Department" />
+            <ScalarProperty Name="Photo" ColumnName="Photo" />
+            <ScalarProperty Name="Last_Connection" ColumnName="Last_Connection" />
+            <ScalarProperty Name="Active" ColumnName="Active" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="user_article"><EntityTypeMapping TypeName="ArmoireV3Model.user_article"><MappingFragment StoreEntitySet="user_article">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Date_Creation" ColumnName="Date_Creation" />
+            <ScalarProperty Name="Date_Modification" ColumnName="Date_Modification" />
+            <ScalarProperty Name="Taille" ColumnName="Taille" />
+            <ScalarProperty Name="Credit" ColumnName="Credit" />
+            <ScalarProperty Name="Credit_Restant" ColumnName="Credit_Restant" />
+            <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+            <ScalarProperty Name="Article_Type_Id" ColumnName="Article_Type_Id" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="corresp_lang">
+            <EntityTypeMapping TypeName="ArmoireV3Model.corresp_lang">
+              <MappingFragment StoreEntitySet="corresp_lang">
+                <ScalarProperty Name="Language" ColumnName="Language" />
+                <ScalarProperty Name="cultureName" ColumnName="cultureName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="version">
+            <EntityTypeMapping TypeName="ArmoireV3Model.version">
+              <MappingFragment StoreEntitySet="version">
+                <ScalarProperty Name="DateSynchro" ColumnName="DateSynchro" />
+                <ScalarProperty Name="VersMat" ColumnName="VersMat" />
+                <ScalarProperty Name="VersLog" ColumnName="VersLog" />
+                <ScalarProperty Name="NomPlace" ColumnName="NomPlace" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="article_taille">
+            <EntityTypeMapping TypeName="ArmoireV3Model.article_taille">
+              <MappingFragment StoreEntitySet="article_taille">
+                <ScalarProperty Name="Vide" ColumnName="Vide" />
+                <ScalarProperty Name="Armoire" ColumnName="Armoire" />
+                <ScalarProperty Name="Taille" ColumnName="Taille" />
+                <ScalarProperty Name="Article_Type_ID" ColumnName="Article_Type_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="article_type">
+            <EntityTypeMapping TypeName="ArmoireV3Model.article_type">
+              <MappingFragment StoreEntitySet="article_type">
+                <ScalarProperty Name="Description_longue" ColumnName="Description_longue" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Sexe" ColumnName="Sexe" />
+                <ScalarProperty Name="Couleur" ColumnName="Couleur" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Type_Taille" ColumnName="Type_Taille" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Date_Modification" ColumnName="Date_Modification" />
+                <ScalarProperty Name="Date_Creation" ColumnName="Date_Creation" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="corresp_taille">
+            <EntityTypeMapping TypeName="ArmoireV3Model.corresp_taille">
+              <MappingFragment StoreEntitySet="corresp_taille">
+                <ScalarProperty Name="Classement_tailles" ColumnName="Classement_tailles" />
+                <ScalarProperty Name="Taille" ColumnName="Taille" />
+                <ScalarProperty Name="Type_Taille" ColumnName="Type-Taille" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="ModelArmoireV3">
+        <EntityTypeShape EntityType="ArmoireV3Model.C_heartbeat" Width="1.5" PointX="0.75" PointY="0.75" Height="1.9802864583333331" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArmoireV3Model.alert" Width="1.5" PointX="2.75" PointY="0.75" Height="2.3648893229166665" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArmoireV3Model.alert_type" Width="1.5" PointX="4.75" PointY="0.75" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArmoireV3Model.case" Width="1.5" PointX="4.75" PointY="3.75" Height="2.364889322916667" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArmoireV3Model.content_arm" Width="1.5" PointX="6.75" PointY="0.75" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArmoireV3Model.epc" Width="1.5" PointX="6.75" PointY="6.75" Height="4.2879036458333353" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArmoireV3Model.log_epc" Width="1.5" PointX="8.75" PointY="0.75" Height="4.2879036458333353" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArmoireV3Model.state" Width="1.5" PointX="0.75" PointY="8.75" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArmoireV3Model.tag_alert" Width="1.5" PointX="2.75" PointY="8.75" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArmoireV3Model.user" Width="1.5" PointX="8.75" PointY="6.75" Height="4.1156022135416652" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArmoireV3Model.user_article" Width="1.5" PointX="10.75" PointY="0.75" Height="2.5571907552083388" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArmoireV3Model.corresp_lang" Width="1.5" PointX="10.625" PointY="6.75" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="ArmoireV3Model.version" Width="1.5" PointX="0.75" PointY="12.75" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="ArmoireV3Model.article_taille" Width="1.5" PointX="10.625" PointY="9.375" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="ArmoireV3Model.article_type" Width="1.5" PointX="2.625" PointY="3.75" Height="3.1340950520833388" />
+        <EntityTypeShape EntityType="ArmoireV3Model.corresp_taille" Width="1.5" PointX="6.75" PointY="4" Height="1.5956835937500031" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
